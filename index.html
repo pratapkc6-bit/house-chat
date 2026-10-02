@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#08111c" />
+  <meta name="description" content="House Five Chat - standalone microfrontend" />
+  <title>House Five Chat</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app" class="chat-world">
+    <aside id="sidebar" class="sidebar" aria-label="Conversations">
+      <div class="sidebar-top">
+        <button id="homeBtn" class="icon-btn home-btn" type="button" aria-label="Back to House Five" title="Back to House Five">⌂</button>
+        <div class="brand">
+          <span class="brand-mark">५</span>
+          <span><b>house chat</b><small>घर पाँच</small></span>
+        </div>
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+      </div>
+
+      <div class="profile-card">
+        <div id="meAvatar" class="avatar me">P</div>
+        <div class="profile-copy"><strong id="meName">House member</strong><span><i class="online-dot"></i> available</span></div>
+        <span id="modeBadge" class="mode-badge">standalone</span>
+      </div>
+
+      <label class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="Search conversations" />
+      </label>
+
+      <div class="sidebar-label"><span>Messages</span><button id="newChatBtn" type="button">＋</button></div>
+      <div id="conversationList" class="conversation-list"></div>
+    </aside>
+
+    <main class="conversation-shell">
+      <header class="conversation-header">
+        <button id="menuBtn" class="icon-btn mobile-only" type="button" aria-label="Open conversations">☰</button>
+        <div id="activeAvatar" class="avatar">H5</div>
+        <div class="active-copy"><strong id="activeTitle">House Five</strong><span id="activeStatus">House group</span></div>
+        <div class="header-actions">
+          <button id="searchMessagesBtn" class="icon-btn" type="button" aria-label="Search messages" title="Search messages">⌕</button>
+          <button id="infoBtn" class="icon-btn" type="button" aria-label="Conversation information" title="Conversation info">ⓘ</button>
+        </div>
+      </header>
+
+      <section id="messageSearch" class="message-search hidden" aria-label="Search this conversation">
+        <input id="messageSearchInput" type="search" placeholder="Find a message…" />
+        <button id="closeMessageSearch" class="icon-btn" type="button" aria-label="Close message search">×</button>
+      </section>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+      <div id="typing" class="typing hidden"><span></span><span></span><span></span><em>typing</em></div>
+
+      <footer class="composer-wrap">
+        <div id="replyBar" class="reply-bar hidden"><span id="replyText"></span><button id="clearReply" type="button">×</button></div>
+        <div class="composer">
+          <button id="attachBtn" class="composer-action" type="button" aria-label="Attach">＋</button>
+          <textarea id="composerInput" rows="1" maxlength="2000" placeholder="Message…" aria-label="Message"></textarea>
+          <button id="emojiBtn" class="composer-action" type="button" aria-label="Emoji">☺</button>
+          <button id="sendBtn" class="send-btn" type="button" aria-label="Send message">➤</button>
+        </div>
+        <div id="emojiTray" class="emoji-tray hidden" aria-label="Quick emojis"></div>
+      </footer>
+    </main>
+  </div>
+
+  <div id="drawerScrim" class="drawer-scrim hidden"></div>
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
